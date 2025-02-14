@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="talk.ico">
+    <title>Valentine's Message</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: rgb(12, 12, 12);
+            color: white;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .message, .image-container, .last-message {
+            position: absolute;
+            font-size: 32px;
+            font-weight: bold;
+            opacity: 0;
+            text-shadow: 2px 2px 10px rgba(58, 58, 58, 0.8);
+            animation: fadeInOut 3s ease-in-out forwards;
+        }
+
+        @keyframes fadeInOut {
+            0% { opacity: 0; transform: translateY(20px); }
+            25% { opacity: 1; transform: translateY(0); }
+            75% { opacity: 1; transform: translateY(0); }
+            100% { opacity: 0; transform: translateY(-20px); }
+        }
+
+        .message:nth-child(1) { animation-delay: 0s; }
+        .message:nth-child(2) { animation-delay: 4s; }
+        .message:nth-child(3) { animation-delay: 8s; }
+        .message:nth-child(4) { animation-delay: 12s; }
+        .message:nth-child(5) { animation-delay: 16s; }
+
+        .image-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px;
+            animation: fadeInOut 4s ease-in-out forwards;
+            animation-delay: 20s;
+        }
+
+        .image-container img {
+            width: 250px;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .image-container p {
+            font-size: 28px;
+            margin: 0;
+            font-family: 'Great Vibes', cursive;
+            color: pink;
+        }
+
+        .last-message {
+            opacity: 0;
+            font-size: 40px;
+            font-family: 'Great Vibes', cursive;
+            animation: fadeIn 3s ease-in-out forwards;
+            animation-delay: 25s;
+        }
+
+        .last-message span {
+            background: rgba(255, 0, 0, 0.8);
+            padding: 5px 15px;
+            border-radius: 20px;
+            color: white;
+            box-shadow: 0 0 15px rgba(46, 46, 46, 0.8);
+            animation: heartbeat 1.5s infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(20px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/fireworks-js@2.10.8/dist/index.umd.js"></script>
+</head>
+<body>
+
+    <div class="container">
+        <div class="message">HELLO, JENNEFER ASDAI</div>
+        <div class="message">I HOPE YOU'RE SAFE ALWAYS</div>
+        <div class="message">I HOPE WE WILL LAST FOREVER</div>
+        <div class="message">AND EVER :D</div>
+        <div class="message">HEHE</div>
+
+        <div class="image-container">
+            <img src="a.png" alt="Valentine's Image">
+            <p>Happy Valentine's Day!, My Love.</p>
+        </div>
+        
+        <div class="last-message">I love you so much, <span>My Love</span></div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.container');
+            const fireworks = new Fireworks.default(container, {
+                autoresize: true,
+                opacity: 0.5,
+                acceleration: 1.05,
+                friction: 0.97,
+                gravity: 1.5,
+                particles: 50,
+                traceLength: 3,
+                traceSpeed: 10,
+                explosion: 5,
+                intensity: 30,
+                flickering: 50,
+                lineStyle: 'round',
+                hue: {
+                    min: 0,
+                    max: 360
+                },
+                delay: {
+                    min: 30,
+                    max: 60
+                },
+                rocketsPoint: {
+                    min: 50,
+                    max: 50
+                },
+                lineWidth: {
+                    explosion: {
+                        min: 1,
+                        max: 3
+                    },
+                    trace: {
+                        min: 1,
+                        max: 2
+                    }
+                },
+                brightness: {
+                    min: 50,
+                    max: 80
+                },
+                decay: {
+                    min: 0.015,
+                    max: 0.03
+                },
+                mouse: {
+                    click: false,
+                    move: false,
+                    max: 1
+                }
+            });
+
+            setTimeout(() => {
+                fireworks.start();
+            }, 25000);
+        });
+    </script>
+
+</body>
+</html>
